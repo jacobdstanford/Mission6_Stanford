@@ -17,6 +17,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Testing
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
