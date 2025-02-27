@@ -1,19 +1,25 @@
 using Mission6_Stanford.Models;
 using Microsoft.EntityFrameworkCore;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-// Add database context
+// Add database context and connect to SQLite
 builder.Services.AddDbContext<MovieContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("MovieDbConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("MovieDbConnection"))
+);
+
+// Add controllers and views
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Ensure database is created
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<MovieContext>();
+    dbContext.Database.EnsureCreated(); // Ensures database is available
+}
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -22,7 +28,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(

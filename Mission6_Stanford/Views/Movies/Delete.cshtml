@@ -1,0 +1,42 @@
+@model Mission6_Stanford.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete Movie";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger">Delete Movie</h2>
+    <hr />
+    
+    <h4>Are you sure you want to delete this movie?</h4>
+    <div class="card shadow p-4 mt-3">
+        <dl class="row">
+            <dt class="col-sm-4">Title</dt>
+            <dd class="col-sm-8">@Model.Title</dd>
+
+            <dt class="col-sm-4">Category</dt>
+            <dd class="col-sm-8">@Model.CategoryID</dd>
+
+            <dt class="col-sm-4">Year</dt>
+            <dd class="col-sm-8">@Model.Year</dd>
+
+            <dt class="col-sm-4">Director</dt>
+            <dd class="col-sm-8">@Model.Director</dd>
+
+            <dt class="col-sm-4">Rating</dt>
+            <dd class="col-sm-8">@Model.Rating</dd>
+
+            <dt class="col-sm-4">Edited</dt>
+            <dd class="col-sm-8">@(Model.Edited ? "Yes" : "No")</dd>
+
+            <dt class="col-sm-4">Copied to Plex</dt>
+            <dd class="col-sm-8">@(Model.CopiedToPlex ? "Yes" : "No")</dd>
+        </dl>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="MovieId" />
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

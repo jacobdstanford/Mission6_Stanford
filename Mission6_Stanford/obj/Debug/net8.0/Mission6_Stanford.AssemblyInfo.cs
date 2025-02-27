@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission6_Stanford")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66e161d44be96b829c7496467c4f75eea1810ce1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddd45832fdb8f89620e901ed9f2a45cf9029b549")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission6_Stanford")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission6_Stanford")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

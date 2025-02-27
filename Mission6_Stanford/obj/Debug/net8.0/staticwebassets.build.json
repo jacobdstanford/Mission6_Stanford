@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0oG9jeMXEA+BpkITzFwPqsDg8bd8jFIQEqEz762WoQU=",
+  "Hash": "v9tehx91hxqKTrGnvAJWly8gyC/6qTXJGqEpmaEUlYE=",
   "Source": "Mission6_Stanford",
   "BasePath": "_content/Mission6_Stanford",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/joel.jpg"
+    },
+    {
+      "Identity": "/Users/jacobstanford/RiderProjects/Mission6_Stanford/Mission6_Stanford/wwwroot/JoelHiltonMovieCollection.sqlite",
+      "SourceId": "Mission6_Stanford",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/jacobstanford/RiderProjects/Mission6_Stanford/Mission6_Stanford/wwwroot/",
+      "BasePath": "_content/Mission6_Stanford",
+      "RelativePath": "JoelHiltonMovieCollection.sqlite",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/JoelHiltonMovieCollection.sqlite"
     },
     {
       "Identity": "/Users/jacobstanford/RiderProjects/Mission6_Stanford/Mission6_Stanford/wwwroot/js/site.js",

@@ -28,11 +28,11 @@
     {
         <tr>
             <td>@movie.Title</td>
-            <td>@movie.Category</td>
+            <td>@movie.CategoryID</td>
             <td>@movie.Year</td>
             <td>@movie.Director</td>
             <td>@movie.Rating</td>
-            <td>@(movie.Edited.HasValue ? (movie.Edited.Value ? "Yes" : "No") : "N/A")</td>
+            <td>@(movie.Edited ? "Yes" : "No")</td>
             <td>@movie.LentTo</td>
             <td>@movie.Notes</td>
         </tr>

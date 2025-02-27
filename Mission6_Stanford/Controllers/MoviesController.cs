@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission6_Stanford.Models;
 using System.Linq;
 
@@ -13,28 +14,67 @@ namespace Mission6_Stanford.Controllers
             _context = context;
         }
 
+        // Display all movies
         public IActionResult Index()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies
+                .Select(m => new Movie
+                {
+                    MovieId = m.MovieId,
+                    Title = m.Title,
+                    CategoryID = m.CategoryID,
+                    Year = m.Year,
+                    Director = m.Director ?? "Unknown",
+                    Rating = m.Rating ?? "Unrated",
+                    Edited = m.Edited,
+                    LentTo = m.LentTo,
+                    Notes = m.Notes,
+                    CopiedToPlex = m.CopiedToPlex
+                }).ToList();
+
             return View(movies);
         }
 
-        public IActionResult Create()
+        // Display Edit Form
+        public IActionResult Edit(int id)
         {
-            return View();
+            var movie = _context.Movies.Find(id);
+            if (movie == null) return NotFound();
+            return View(movie);
         }
 
+        // Process Edit Submission
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Movie movie)
+        public IActionResult Edit(Movie movie)
         {
             if (ModelState.IsValid)
             {
-                _context.Movies.Add(movie);
+                _context.Update(movie);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index");
             }
             return View(movie);
+        }
+
+        // Display Delete Confirmation
+        public IActionResult Delete(int id)
+        {
+            var movie = _context.Movies.Find(id);
+            if (movie == null) return NotFound();
+            return View(movie);
+        }
+
+        // Process Delete
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var movie = _context.Movies.Find(id);
+            if (movie != null)
+            {
+                _context.Movies.Remove(movie);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

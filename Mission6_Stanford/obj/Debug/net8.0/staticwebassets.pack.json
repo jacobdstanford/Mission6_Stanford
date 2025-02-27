@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Mission6_Stanford.bundle.scp.css"
     },
     {
+      "Id": "/Users/jacobstanford/RiderProjects/Mission6_Stanford/Mission6_Stanford/wwwroot/JoelHiltonMovieCollection.sqlite",
+      "PackagePath": "staticwebassets/JoelHiltonMovieCollection.sqlite"
+    },
+    {
       "Id": "/Users/jacobstanford/RiderProjects/Mission6_Stanford/Mission6_Stanford/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
